@@ -1,79 +1,125 @@
-import React from 'react';
+import React from "react";
 
 const Footer: React.FC = () => {
+  const date = new Date();
+  const year = date.getFullYear();
+
   return (
-    <footer className="bg-blue-100 text-gray-800 py-12 border-t border-blue-200 w-full">
+    <footer className="bg-gray-800 text-gray-300 py-12 w-full">
       <div className="px-4">
         <div className="flex flex-col md:flex-row justify-between items-start">
           <div className="mb-6 md:mb-0">
-            <h2 className="text-3xl font-bold text-blue-600">Автосервис XYZ</h2>
+            <h2 className="text-3xl font-bold text-cyan-400 mb-4">
+              Автосервис Top Garage
+            </h2>
             <p className="mt-2 text-lg">
-              Мы предлагаем полный спектр услуг для вашего автомобиля, включая диагностику, ремонт и
-              обслуживание.
+              Мы предлагаем полный спектр услуг для вашего автомобиля, включая
+              диагностику, ремонт и обслуживание.
             </p>
-            <p className="mt-2 text-sm text-gray-600">
-              Наша команда профессионалов готова предоставить вам высококачественный сервис и
-              заботиться о вашем автомобиле.
+            <p className="mt-2 text-md text-gray-400">
+              Наша команда профессионалов готова предоставить вам
+              высококачественный сервис и заботиться о вашем автомобиле.
             </p>
           </div>
 
           <div className="flex flex-col mb-6 md:mb-0">
-            <h3 className="text-xl font-semibold text-blue-700 mb-2">Контакты</h3>
+            <h3 className="text-xl font-semibold text-cyan-400 mb-2">
+              Контакты
+            </h3>
             <p className="text-lg">
-              Телефон:{' '}
-              <a href="tel:+1234567890" className="text-blue-600 hover:underline">
+              Телефон:{" "}
+              <a
+                href="tel:+1234567890"
+                className="text-blue-400 hover:text-blue-500 transition duration-200"
+              >
                 +1 (234) 567-890
               </a>
             </p>
             <p className="text-lg">
-              Email:{' '}
-              <a href="mailto:info@autoservice.xyz" className="text-blue-600 hover:underline">
-                info@autoservice.xyz
+              Email:{" "}
+              <a
+                href="mailto:info@autoservice.TopGarage"
+                className="text-blue-400 hover:text-blue-500 transition duration-200"
+              >
+                info@autoservice.TopGarage
               </a>
             </p>
             <p className="text-lg">
-              Адрес: <span className="text-gray-600">123 Автосервисная Улица, Город, Штат</span>
+              Адрес:{" "}
+              <span className="text-gray-400">
+                123 Автосервисная Улица, Город, Штат
+              </span>
             </p>
           </div>
 
           <div className="flex flex-col">
-            <h3 className="text-xl font-semibold text-blue-700 mb-2">Полезные ссылки</h3>
-            <a href="#services" className="text-blue-600 hover:underline mb-1">
+            <h3 className="text-xl font-semibold text-cyan-400 mb-2">
+              Полезные ссылки
+            </h3>
+            <a
+              href="#services"
+              className="text-blue-400 hover:text-blue-500 mb-1 transition duration-200"
+            >
               Наши услуги
             </a>
-            <a href="#about" className="text-blue-600 hover:underline mb-1">
+            <a
+              href="#about"
+              className="text-blue-400 hover:text-blue-500 mb-1 transition duration-200"
+            >
               О нас
             </a>
-            <a href="#contact" className="text-blue-600 hover:underline mb-1">
+            <a
+              href="#contact"
+              className="text-blue-400 hover:text-blue-500 mb-1 transition duration-200"
+            >
               Контакты
             </a>
-            <a href="#faq" className="text-blue-600 hover:underline">
+            <a
+              href="#faq"
+              className="text-blue-400 hover:text-blue-500 transition duration-200"
+            >
               Часто задаваемые вопросы
             </a>
           </div>
         </div>
 
         <div className="mt-8">
-          <h3 className="text-xl font-semibold text-blue-700 mb-2">Мы в соцсетях</h3>
+          <h3 className="text-xl font-semibold text-cyan-400 mb-2">
+            Мы в соцсетях
+          </h3>
           <div className="flex space-x-4">
-            <a href="#" className="text-blue-600 hover:text-blue-800">
+            <a
+              href="#"
+              className="text-blue-400 hover:text-blue-500 transition duration-200"
+            >
               Facebook
             </a>
-            <a href="#" className="text-blue-600 hover:text-blue-800">
+            <a
+              href="#"
+              className="text-blue-400 hover:text-blue-500 transition duration-200"
+            >
               Instagram
             </a>
-            <a href="#" className="text-blue-600 hover:text-blue-800">
+            <a
+              href="#"
+              className="text-blue-400 hover:text-blue-500 transition duration-200"
+            >
               Twitter
             </a>
-            <a href="#" className="text-blue-600 hover:text-blue-800">
+            <a
+              href="#"
+              className="text-blue-400 hover:text-blue-500 transition duration-200"
+            >
               LinkedIn
             </a>
           </div>
         </div>
 
-        <div className="mt-4 border-t border-gray-300 pt-4 text-center">
-          <p className="text-sm">© 2023 Автосервис XYZ. Все права защищены.</p>
-          <p className="text-xs text-gray-600">Качество работы — наша главная цель!</p>
+        <div className="mt-4 border-t border-gray-600 pt-4 text-center">
+          <p className="text-sm font-semibold">{`© ${year} Автосервис Top Garage. Все права защищены.`}</p>
+          <p className="text-sm font-semibold text-gray-400">
+            Качество работы — наша главная цель!
+          </p>
         </div>
       </div>
     </footer>

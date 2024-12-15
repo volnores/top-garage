@@ -1,6 +1,6 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper-bundle.css';
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.css";
 
 interface Slide {
   title: string;
@@ -15,7 +15,7 @@ const SwiperComponentSales: React.FC<SwiperProps> = ({ slides }) => {
   return (
     <Swiper
       spaceBetween={20}
-      slidesPerView={3}
+      slidesPerView={1}
       breakpoints={{
         640: {
           slidesPerView: 1,
@@ -26,12 +26,14 @@ const SwiperComponentSales: React.FC<SwiperProps> = ({ slides }) => {
         1024: {
           slidesPerView: 3,
         },
-      }}>
+      }}
+    >
       {slides.map((item, index) => (
         <SwiperSlide
           key={index}
-          className="bg-slate-200 rounded-md h-40 flex items-center justify-center">
-          <div className="m-24">{item.title}</div>
+          className="bg-slate-400 rounded-md flex items-center justify-center"
+        >
+          <div className="h-72">{item.title}</div>
         </SwiperSlide>
       ))}
     </Swiper>
