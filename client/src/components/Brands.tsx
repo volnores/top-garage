@@ -11,7 +11,6 @@ const brandsList = [
   "Volkswagen",
   "Hyundai",
   "Kia",
-  // Добавьте другие марки по необходимости
 ];
 
 const Brands = () => {

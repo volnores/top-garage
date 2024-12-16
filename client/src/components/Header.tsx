@@ -1,5 +1,8 @@
 import React from "react";
 import CategorySlider from "./CategorySlider";
+import logo from "../../public/logo.png";
+import { useNavigate } from "react-router-dom";
+import { HOME } from "../router/routes";
 
 const categories = [
   { title: "Главная" },
@@ -18,12 +21,20 @@ const scrollToContactForm = () => {
 };
 
 const Header: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleNav = () => {
+    navigate(HOME);
+  };
   return (
     <header>
       <div className="bg-gray-800 py-8 px-4 flex flex-col md:flex-row justify-between items-center">
         <div className="flex items-center gap-6">
-          <button className="text-3xl font-bold text-white hover:text-indigo-600 ">
-            LOGO
+          <button
+            onClick={handleNav}
+            className="text-3xl font-bold text-white hover:text-indigo-600 "
+          >
+            <img src={logo} alt="" width={60} />
           </button>
           <div className="flex flex-col gap-2">
             <p className="text-white text-3xl font-bold">TOP GARAGE</p>
