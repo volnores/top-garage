@@ -39,7 +39,7 @@ const ContactForm: React.FC = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col items-center mx-auto p-6 shadow-md rounded-md bg-blue-900 "
+      className="flex flex-col items-center text-center mx-auto p-6 py-4  rounded-md bg-blue-900 "
     >
       <h2 className="text-2xl font-semibold mb-4 text-center text-white">
         Форма обратной связи
