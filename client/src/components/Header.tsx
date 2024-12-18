@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { HOME } from "../router/routes";
 import ContactForm from "./ContactForm";
 import Modal from "./Modal";
+import { useAppDispatch, useAppSelector } from "../store";
+import { setIsOpenModal } from "../store/slices/storeSlice";
 
 const categories = [
   { title: "Главная" },
@@ -16,19 +18,21 @@ const categories = [
 ];
 
 const Header: React.FC = () => {
+  const { isOpenModal } = useAppSelector((state) => state.store);
   const navigate = useNavigate();
-  const [isModalOpen, setIsModalOpen] = useState(false); // состояние для управления модальным окном
+  const dispatch = useAppDispatch();
+
+  const handleOpenModal = () => {
+    dispatch(setIsOpenModal(true));
+  };
+
+  const handleCloseModal = () => {
+    dispatch(setIsOpenModal(false));
+  };
 
   const handleNav = () => {
     navigate(HOME);
   };
-
-  useEffect(() => {
-    return () => {
-      // Включаем прокрутку обратно, если компонент размонтирован
-      document.body.style.overflow = "auto";
-    };
-  }, []);
 
   return (
     <header>
@@ -61,7 +65,7 @@ const Header: React.FC = () => {
           </div>
           <div className="mt-2 md:mt-0 md:ml-4">
             <button
-              onClick={() => setIsModalOpen(true)} // открываем модальное окно
+              onClick={handleOpenModal}
               className="text-base font-medium transition-colors duration-200 bg-blue-600 hover:bg-blue-700 text-white rounded px-5 py-3 shadow-sm"
             >
               Заказать обратный звонок
@@ -72,8 +76,7 @@ const Header: React.FC = () => {
       <div>
         <CategorySlider categories={categories} />
       </div>
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        {/* Передаем состояния и функции */}
+      <Modal isOpenModal={isOpenModal} handleCloseModal={handleCloseModal}>
         <ContactForm />
       </Modal>
     </header>

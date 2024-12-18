@@ -1,7 +1,12 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { sendContactForm } from "../store/slices/storeSlice"; // Путь к вашему слайсу
+import { RootState } from "../store"; // Путь к вашему типу состояния
 
 const ContactForm: React.FC = () => {
+  const dispatch = useDispatch();
+  const status = useSelector((state: RootState) => state.store.status);
+
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [category, setCategory] = useState("");
@@ -10,36 +15,22 @@ const ContactForm: React.FC = () => {
     e.preventDefault();
     const data = { name, phone, category };
 
-    // Форматируем сообщение, которое хотите отправить
-    const textMessage = `Имя: ${data.name}\nТелефон: ${data.phone}\nКатегория: ${data.category}`;
-
     try {
-      // Делаем запрос к Telegram API
-      await axios.post(
-        "https://api.telegram.org/bot7785758545:AAFAaQgA0ob-ws91oAdSw8SGITAeCIUDM8Q/sendMessage",
-        {
-          chat_id: "1844520562", // Ваш chat_id
-          text: textMessage, // Текст сообщения
-        }
-      );
+      await dispatch(sendContactForm(data)).unwrap();
       alert("Сообщение отправлено");
       setName("");
       setPhone("");
       setCategory("");
     } catch (error) {
       console.error("Ошибка при отправке сообщения:", error);
-      if (error.response) {
-        alert(`Ошибка: ${error.response.data.description}`);
-      } else {
-        alert("Ошибка при отправке сообщения");
-      }
+      alert("Ошибка при отправке сообщения");
     }
   };
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col items-center text-center mx-auto p-6 py-4  rounded-md bg-blue-900 "
+      className="flex flex-col items-center text-center mx-auto p-6 py-4 rounded-md bg-blue-900"
     >
       <h2 className="text-2xl font-semibold mb-4 text-center text-white">
         Форма обратной связи
@@ -81,8 +72,9 @@ const ContactForm: React.FC = () => {
       <button
         type="submit"
         className="w-full bg-blue-500 max-w-md mb-4 text-white font-semibold py-3 rounded-md hover:bg-blue-600 transition duration-200"
+        disabled={status === "loading"} // Неактивная кнопка при загрузке
       >
-        Отправить
+        {status === "loading" ? "Отправка..." : "Отправить"}
       </button>
     </form>
   );
