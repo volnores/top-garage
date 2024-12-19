@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Blog: React.FC = () => {
   return (
@@ -20,34 +20,54 @@ const Blog: React.FC = () => {
       <div className="space-y-6">
         {/* Пример статьи 1 */}
         <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-          <h3 className="font-bold text-xl mb-2">Как выбрать масло для вашего автомобиля</h3>
+          <h3 className="font-bold text-xl mb-2">
+            Как выбрать масло для вашего автомобиля
+          </h3>
           <p className="text-gray-700 mb-2">
-            Советы по выбору правильного масла в зависимости от типа и марки вашего автомобиля.
+            Советы по выбору правильного масла в зависимости от типа и марки
+            вашего автомобиля.
           </p>
-          <a href="#" className="text-blue-500 font-medium hover:underline">
+          <a
+            target="blank"
+            href="https://liquimoly.ru/servis/info/kak_vybrat_maslo/"
+            className="text-blue-500 font-medium hover:underline"
+          >
             Читать далее
           </a>
         </div>
 
         {/* Пример статьи 2 */}
         <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-          <h3 className="font-bold text-xl mb-2">Зачем нужно выполнять регулярные ТО</h3>
+          <h3 className="font-bold text-xl mb-2">
+            Зачем нужно выполнять регулярные ТО
+          </h3>
           <p className="text-gray-700 mb-2">
-            Узнайте, почему регулярные технические обслуживания важны для долговечности вашего
-            автомобиля.
+            Узнайте, почему регулярные технические обслуживания важны для
+            долговечности вашего автомобиля.
           </p>
-          <a href="#" className="text-blue-500 font-medium hover:underline">
+          <a
+            target="blank"
+            href="https://toyotaspb.com/stati/zachem-nuzhno-delat-reglamentnoe-tehnicheskoe-obsluzhivanie-avtomobilya/"
+            className="text-blue-500 font-medium hover:underline"
+          >
             Читать далее
           </a>
         </div>
 
         {/* Пример статьи 3 */}
         <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-          <h3 className="font-bold text-xl mb-2">Подбор тормозных колодок: что нужно знать</h3>
+          <h3 className="font-bold text-xl mb-2">
+            Подбор тормозных колодок: что нужно знать
+          </h3>
           <p className="text-gray-700 mb-2">
-            Все, что вам нужно знать об актуальных типах тормозных колодок и их замене.
+            Все, что вам нужно знать об актуальных типах тормозных колодок и их
+            замене.
           </p>
-          <a href="#" className="text-blue-500 font-medium hover:underline">
+          <a
+            target="blank"
+            href="https://avilon-trade.ru/articles/kak-vybrat-tormoznye-kolodki/"
+            className="text-blue-500 font-medium hover:underline"
+          >
             Читать далее
           </a>
         </div>

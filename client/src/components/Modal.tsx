@@ -13,7 +13,10 @@ const Modal = ({ children, isOpenModal, handleCloseModal }) => {
             }}
           />
           <div className="fixed inset-0 flex items-center justify-center z-50">
-            <div className="bg-blue-900 p-6 rounded-lg shadow-lg max-w-md mx-auto relative">
+            <div
+              className="bg-blue-900 p-6 rounded-lg shadow-lg max-w-md mx-auto relative"
+              onClick={(e) => e.stopPropagation()} // Остановка всплытия событий
+            >
               <button
                 onClick={handleCloseModal}
                 className="absolute top-4 right-4 text-white"

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Contacts: React.FC = () => {
   return (
@@ -19,9 +19,9 @@ const Contacts: React.FC = () => {
       <h2 className="font-bold text-2xl mb-4">Контактная информация</h2>
       <div className="bg-gray-100 p-6 rounded-lg shadow-lg mb-8">
         <h3 className="font-bold text-xl mb-2">Наши Контакты</h3>
-        <p>Телефон: +7 (123) 456-78-90</p>
+        <p>Телефон: +7 (000) 000-00-00</p>
         <p>Email: info@autoservice.com</p>
-        <p>Адрес: ул. Примерная, 10, Москва</p>
+        <p>Адрес: г. Раменское, ул. Чкалова, д 13</p>
       </div>
 
       <h2 className="font-bold text-2xl mb-4">Обратная связь</h2>
@@ -64,7 +64,8 @@ const Contacts: React.FC = () => {
         </div>
         <button
           type="submit"
-          className="bg-blue-500 text-white p-2 rounded font-medium transition duration-200 hover:bg-blue-600">
+          className="bg-blue-500 text-white p-2 rounded font-medium transition duration-200 hover:bg-blue-600"
+        >
           Отправить
         </button>
       </form>

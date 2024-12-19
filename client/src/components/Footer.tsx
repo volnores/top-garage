@@ -1,85 +1,104 @@
-import React from 'react';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { ABOUT, CONTACTS, SERVICE } from "../router/routes";
 
 const Footer: React.FC = () => {
   const date = new Date();
   const year = date.getFullYear();
-
+  const navigate = useNavigate();
   return (
     <footer className="bg-gray-800 text-gray-300 py-8 w-full">
       <div className="px-4">
         <div className="flex flex-col md:flex-row justify-between items-start">
           <div className="mb-6 md:mb-0">
-            <h2 className="text-3xl font-bold text-cyan-400 mb-4">Автосервис Top Garage</h2>
+            <h2 className="text-3xl font-bold text-cyan-400 mb-4">
+              Автосервис Top Garage
+            </h2>
             <p className="mt-2 text-lg">
-              Мы предлагаем полный спектр услуг для вашего автомобиля, включая диагностику, ремонт и
-              обслуживание.
+              Мы предлагаем полный спектр услуг для вашего автомобиля, включая
+              диагностику, ремонт и обслуживание.
             </p>
             <p className="mt-2 text-md text-gray-400">
-              Наша команда профессионалов готова предоставить вам высококачественный сервис и
-              заботиться о вашем автомобиле.
+              Наша команда профессионалов готова предоставить вам
+              высококачественный сервис и заботиться о вашем автомобиле.
             </p>
           </div>
 
           <div className="flex flex-col mb-6 md:mb-0">
-            <h3 className="text-xl font-semibold text-cyan-400 mb-2">Контакты</h3>
+            <h3 className="text-xl font-semibold text-cyan-400 mb-2">
+              Контакты
+            </h3>
             <p className="text-lg">
-              Телефон:{' '}
+              Телефон:{" "}
               <a
                 href="tel:+1234567890"
-                className="text-blue-400 hover:text-blue-500 transition duration-200">
-                +1 (234) 567-890
+                className="text-blue-400 hover:text-blue-500 transition duration-200"
+              >
+                +7 (000) 000-00-00
               </a>
             </p>
             <p className="text-lg">
-              Email:{' '}
+              Email:{" "}
               <a
                 href="mailto:info@autoservice.TopGarage"
-                className="text-blue-400 hover:text-blue-500 transition duration-200">
+                className="text-blue-400 hover:text-blue-500 transition duration-200"
+              >
                 info@autoservice.TopGarage
               </a>
             </p>
             <p className="text-lg">
-              Адрес: <span className="text-gray-400">123 Автосервисная Улица, Город, Штат</span>
+              Адрес:{" "}
+              <span className="text-gray-400">
+                г. Раменское, ул. Чкалова, д 13
+              </span>
             </p>
           </div>
 
           <div className="flex flex-col">
-            <h3 className="text-xl font-semibold text-cyan-400 mb-2">Полезные ссылки</h3>
+            <h3 className="text-xl font-semibold text-cyan-400 mb-2">
+              Полезные ссылки
+            </h3>
             <a
-              href="#services"
-              className="text-blue-400 hover:text-blue-500 mb-1 transition duration-200">
+              onClick={() => {
+                navigate(SERVICE);
+                window.scrollTo(0, 0); // Прокрутка до верхней части страницы
+              }}
+              className="text-blue-400 cursor-pointer hover:text-blue-500 mb-1 transition duration-200"
+            >
               Наши услуги
             </a>
             <a
-              href="#about"
-              className="text-blue-400 hover:text-blue-500 mb-1 transition duration-200">
+              onClick={() => {
+                navigate(ABOUT);
+                window.scrollTo(0, 0); // Прокрутка до верхней части страницы
+              }}
+              className="text-blue-400 cursor-pointer hover:text-blue-500 mb-1 transition duration-200"
+            >
               О нас
             </a>
             <a
-              href="#contact"
-              className="text-blue-400 hover:text-blue-500 mb-1 transition duration-200">
+              onClick={() => {
+                navigate(CONTACTS);
+                window.scrollTo(0, 0); // Прокрутка до верхней части страницы
+              }}
+              className="text-blue-400 cursor-pointer hover:text-blue-500 mb-1 transition duration-200"
+            >
               Контакты
-            </a>
-            <a href="#faq" className="text-blue-400 hover:text-blue-500 transition duration-200">
-              Часто задаваемые вопросы
             </a>
           </div>
         </div>
 
         <div className="mt-8">
-          <h3 className="text-xl font-semibold text-cyan-400 mb-2">Мы в соцсетях</h3>
+          <h3 className="text-xl font-semibold text-cyan-400 mb-2">
+            Мы в соцсетях
+          </h3>
           <div className="flex space-x-4">
-            <a href="#" className="text-blue-400 hover:text-blue-500 transition duration-200">
-              Facebook
-            </a>
-            <a href="#" className="text-blue-400 hover:text-blue-500 transition duration-200">
-              Instagram
-            </a>
-            <a href="#" className="text-blue-400 hover:text-blue-500 transition duration-200">
-              Twitter
-            </a>
-            <a href="#" className="text-blue-400 hover:text-blue-500 transition duration-200">
-              LinkedIn
+            <a
+              target="blank"
+              href="https://vk.com/topgarage_carservice"
+              className="text-blue-400 hover:text-blue-500 transition duration-200 font-bold"
+            >
+              VK
             </a>
           </div>
         </div>

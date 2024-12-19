@@ -37,7 +37,7 @@ const Header: React.FC = () => {
   return (
     <header>
       <div className="bg-gray-800 py-8 px-4 flex flex-col md:flex-row justify-between items-center">
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4">
           <button
             onClick={handleNav}
             className="text-3xl font-bold text-white hover:text-indigo-600"

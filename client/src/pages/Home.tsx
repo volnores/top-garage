@@ -9,6 +9,8 @@ import car1 from "../../public/car1.jpg";
 import car2 from "../../public/car2.jpg";
 import car3 from "../../public/car3.jpg";
 import car4 from "../../public/car4.jpg";
+import { useNavigate } from "react-router-dom";
+import { SERVICE } from "../router/routes";
 
 //СЖАТЬ ФИНАЛЬНЫЕ ФОТКИ//СЖАТЬ ФИНАЛЬНЫЕ ФОТКИ//СЖАТЬ ФИНАЛЬНЫЕ ФОТКИ//СЖАТЬ //СЖАТЬ ФИНАЛЬНЫЕ ФОТКИ
 
@@ -22,6 +24,13 @@ const sales = [
 ];
 
 const Home: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleNavigateService = () => {
+    navigate(SERVICE);
+    scrollTo(0, 0);
+  };
+
   return (
     <div>
       <SwiperComponent />
@@ -43,7 +52,8 @@ const Home: React.FC = () => {
           {sales.map((item, index) => (
             <div
               key={index}
-              className="bg-slate-200  flex h-72 rounded-md items-center justify-center relative overflow-hidden"
+              onClick={handleNavigateService}
+              className="bg-slate-200  flex h-72 rounded-md items-center justify-center relative overflow-hidden "
             >
               <div className="relative h-full w-full group">
                 {" "}
@@ -58,7 +68,7 @@ const Home: React.FC = () => {
                 </div>
                 {/* Темный фон и текст при наведении */}
                 <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-black bg-opacity-50 flex items-center justify-center">
-                  <div className="text-center  cursor-pointer text-lg font-medium text-white p-8">
+                  <div className="text-center  cursor-pointer text-lg font-medium text-white p-24">
                     {item.title}
                   </div>
                 </div>
