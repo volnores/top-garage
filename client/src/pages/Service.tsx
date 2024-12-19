@@ -1,8 +1,85 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../store'; // Путь к вашему типу состояния
+import { setSearchByWord, setSelectedCategory } from '../store/slices/storeSlice'; // Путь к вашему слайсу
+
+const servicesData = [
+  {
+    id: 1,
+    title: 'Замена масла',
+    category: 'Общие',
+    description: 'Профессиональная замена масла на всех марках автомобилей.',
+    price: 1500,
+    discountPrice: 1200,
+  },
+  {
+    id: 2,
+    title: 'Тормозная система',
+    category: 'Тормоза',
+    description: 'Проверка и обслуживание тормозной системы вашего автомобиля.',
+    price: 2000,
+    discountPrice: 1800,
+  },
+  {
+    id: 3,
+    title: 'Диагностика двигателя',
+    category: 'Общие',
+    description: 'Компьютерная диагностика и устранение неисправностей.',
+    price: 1000,
+    discountPrice: 900,
+  },
+  {
+    id: 4,
+    title: 'Ремонт подвески',
+    category: 'Подвеска',
+    description: 'Качественный ремонт и замена элементов подвески.',
+    price: 2500,
+    discountPrice: 2300,
+  },
+  {
+    id: 5,
+    title: 'Электросервис',
+    category: 'Электрика',
+    description: 'Услуги по диагностике и ремонту электрооборудования.',
+    price: 1800,
+    discountPrice: 1500,
+  },
+  {
+    id: 6,
+    title: 'Техническое обслуживание',
+    category: 'Общие',
+    description: 'Полное техническое обслуживание вашего автомобиля.',
+    price: 3000,
+    discountPrice: 2700,
+  },
+];
+
+const categoriesData = ['Все', 'Общие', 'Тормоза', 'Подвеска', 'Электрика'];
 
 const Service: React.FC = () => {
+  const dispatch = useDispatch();
+  const { selectedCategory, search } = useSelector((state: RootState) => state.store);
+
+  const handleCategoryChange = (category: string) => {
+    dispatch(setSelectedCategory(category));
+  };
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setSearchByWord(event.target.value));
+  };
+
+  const handleResetSearch = () => {
+    dispatch(setSearchByWord('')); // Сбрасываем ввод поиска
+  };
+
+  const filteredServices = servicesData.filter((service) => {
+    const isMatchingCategory = selectedCategory === 'Все' || service.category === selectedCategory;
+    const isMatchingSearch = service.title.toLowerCase().includes(search.toLowerCase());
+    return isMatchingCategory && isMatchingSearch;
+  });
+
   return (
-    <div className="mx-auto py-8  ">
+    <div className="mx-auto py-8">
       {/* Хлебные крошки */}
       <nav className="mb-8">
         <ol className="list-reset flex text-gray-600">
@@ -18,69 +95,70 @@ const Service: React.FC = () => {
 
       <div className="flex flex-col sm:flex-row">
         {/* Навигация по категориям */}
-        <div className="w-full sm:w-1/4 bg-gray-100 p-4 rounded-lg mb-4 sm:mr-4">
+        <div className="w-full sm:w-1/4 mb-4 sm:mr-4">
           <h2 className="font-bold text-lg mb-2">Категории</h2>
-          <ul className="space-y-2">
-            <li>
-              <a
-                href="#"
-                className="block bg-white cursor-pointer hover:bg-indigo-500 hover:text-white transition duration-200 text-base p-3 rounded font-medium">
-                Замена масла
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block bg-white cursor-pointer hover:bg-indigo-500 hover:text-white transition duration-200 text-base p-3 rounded font-medium">
-                Сервис тормозной системы
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block bg-white cursor-pointer hover:bg-indigo-500 hover:text-white transition duration-200 text-base p-3 rounded font-medium">
-                Диагностика двигателя
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block bg-white cursor-pointer hover:bg-indigo-500 hover:text-white transition duration-200 text-base p-3 rounded font-medium">
-                Ремонт подвески
-              </a>
-            </li>
-          </ul>
+          <div className="grid grid-cols-1 gap-4">
+            {categoriesData.map((category) => (
+              <div
+                key={category}
+                onClick={() => handleCategoryChange(category)}
+                className={`p-4 border rounded-lg text-center cursor-pointer transition-colors duration-300 
+                  ${
+                    selectedCategory === category
+                      ? 'bg-indigo-600 text-white'
+                      : 'bg-white text-black'
+                  }`}>
+                {category}
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Основные категории в виде сетки */}
         <div className="w-full sm:w-3/4">
           <h2 className="font-bold text-2xl mb-4">Услуги автосервиса</h2>
+          <input
+            type="text"
+            placeholder="Поиск услуг..."
+            className="w-full mb-4 p-2 border border-gray-300 rounded"
+            value={search}
+            onChange={handleSearchChange}
+          />
+          {search && (
+            <button
+              onClick={handleResetSearch}
+              className="mb-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors">
+              Сбросить поиск
+            </button>
+          )}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Карточки с услугами */}
-            <div className="border border-gray-300 p-6 rounded-lg shadow-lg">
-              <h3 className="font-bold text-xl mb-2">Замена масла</h3>
-              <p>Профессиональная замена масла на всех марках автомобилей.</p>
-            </div>
-            <div className="border border-gray-300 p-6 rounded-lg shadow-lg">
-              <h3 className="font-bold text-xl mb-2">Тормозная система</h3>
-              <p>Проверка и обслуживание тормозной системы вашего автомобиля.</p>
-            </div>
-            <div className="border border-gray-300 p-6 rounded-lg shadow-lg">
-              <h3 className="font-bold text-xl mb-2">Диагностика двигателя</h3>
-              <p>Компьютерная диагностика и устранение неисправностей.</p>
-            </div>
-            <div className="border border-gray-300 p-6 rounded-lg shadow-lg">
-              <h3 className="font-bold text-xl mb-2">Ремонт подвески</h3>
-              <p>Качественный ремонт и замена элементов подвески.</p>
-            </div>
-            <div className="border border-gray-300 p-6 rounded-lg shadow-lg">
-              <h3 className="font-bold text-xl mb-2">Электросервис</h3>
-              <p>Услуги по диагностике и ремонту электрооборудования.</p>
-            </div>
-            <div className="border border-gray-300 p-6 rounded-lg shadow-lg">
-              <h3 className="font-bold text-xl mb-2">Техническое обслуживание</h3>
-              <p>Полное техническое обслуживание вашего автомобиля.</p>
-            </div>
+            {filteredServices.map((service) => (
+              <div
+                key={service.id}
+                className="border border-gray-300 p-6 rounded-lg shadow-lg transition-transform flex flex-col justify-between"
+                style={{ minHeight: '300px' }}>
+                {' '}
+                {/* Установка минимальной высоты */}
+                <h3 className="font-bold text-xl mb-2">{service.title}</h3>
+                <p className="text-gray-600 flex-grow mb-4">{service.description}</p>
+                <div className="flex justify-between items-center">
+                  <div>
+                    <span className="text-lg font-bold text-green-500">
+                      {service.discountPrice} ₽
+                    </span>
+                    {service.discountPrice < service.price && (
+                      <span className="text-red-500 text line-through ml-2">{service.price} ₽</span>
+                    )}
+                  </div>
+                  {service.discountPrice < service.price && (
+                    <span className="bg-yellow-400 text-white text px-6 py-2 rounded-full">
+                      Скидка!
+                    </span>
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
