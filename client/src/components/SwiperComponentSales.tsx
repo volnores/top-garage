@@ -1,6 +1,8 @@
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper-bundle.css";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper-bundle.css';
+import { SERVICE } from '../router/routes';
 
 interface Slide {
   title: string;
@@ -12,6 +14,7 @@ interface SwiperProps {
 }
 
 const SwiperComponentSales: React.FC<SwiperProps> = ({ slides }) => {
+  const navigate = useNavigate();
   return (
     <Swiper
       spaceBetween={20}
@@ -26,14 +29,21 @@ const SwiperComponentSales: React.FC<SwiperProps> = ({ slides }) => {
         1024: {
           slidesPerView: 3,
         },
-      }}
-    >
+      }}>
       {slides.map((item, index) => (
         <SwiperSlide
           key={index}
-          className="bg-slate-400 rounded-md flex items-center justify-center"
-        >
-          <div className="h-72">{item.title}</div>
+          className="bg-slate-400 flex items-center justify-center rounded-md">
+          <div className="h-full cursor-pointer ">
+            <img
+              src={item.img}
+              alt={item.title}
+              onClick={() => {
+                navigate(SERVICE);
+                window.scrollTo(0, 0); // Прокрутка до верхней части страницы
+              }}
+            />
+          </div>
         </SwiperSlide>
       ))}
     </Swiper>

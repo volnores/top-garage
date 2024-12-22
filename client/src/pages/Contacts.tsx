@@ -1,13 +1,18 @@
-import React from "react";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { HOME } from '../router/routes';
 
 const Contacts: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <div className="mx-auto py-8 ">
       {/* Хлебные крошки */}
       <nav className="mb-8">
         <ol className="list-reset flex text-gray-600">
           <li className="">
-            <a href="#" className="hover:text-blue-500 font-medium text-lg">
+            <a
+              onClick={() => navigate(HOME)}
+              className="hover:text-blue-500 font-medium text-lg cursor-pointer">
               Главная
             </a>
             <span className="mx-2 font-medium text-lg">---</span>
@@ -64,8 +69,7 @@ const Contacts: React.FC = () => {
         </div>
         <button
           type="submit"
-          className="bg-blue-500 text-white p-2 rounded font-medium transition duration-200 hover:bg-blue-600"
-        >
+          className="bg-blue-500 text-white p-2 rounded font-medium transition duration-200 hover:bg-blue-600">
           Отправить
         </button>
       </form>

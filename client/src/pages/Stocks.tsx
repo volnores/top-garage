@@ -1,13 +1,18 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { HOME } from '../router/routes';
 
 const Stocks: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <div className="mx-auto py-8 ">
       {/* Хлебные крошки */}
       <nav className="mb-8">
         <ol className="list-reset flex text-gray-600">
           <li className="">
-            <a href="#" className="hover:text-blue-500 font-medium text-lg">
+            <a
+              onClick={() => navigate(HOME)}
+              className="hover:text-blue-500 font-medium text-lg cursor-pointer">
               Главная
             </a>
             <span className="mx-2 font-medium text-lg">---</span>
