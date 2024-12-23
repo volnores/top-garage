@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-const Modal = ({ children, isOpenModal, handleCloseModal }) => {
+const Modal: React.FC = ({ children, isOpenModal, handleCloseModal }) => {
   return (
     <div>
       {isOpenModal && (
@@ -8,7 +8,7 @@ const Modal = ({ children, isOpenModal, handleCloseModal }) => {
           <div
             className="fixed inset-0 bg-black bg-opacity-50 z-50"
             onClick={() => {
-              console.log("Overlay clicked");
+              console.log('Overlay clicked');
               handleCloseModal();
             }}
           />
@@ -17,10 +17,7 @@ const Modal = ({ children, isOpenModal, handleCloseModal }) => {
               className="bg-blue-900 p-6 rounded-lg shadow-lg max-w-md mx-auto relative"
               onClick={(e) => e.stopPropagation()} // Остановка всплытия событий
             >
-              <button
-                onClick={handleCloseModal}
-                className="absolute top-4 right-4 text-white"
-              >
+              <button onClick={handleCloseModal} className="absolute top-4 right-4 text-white">
                 &times;
               </button>
               {children}
