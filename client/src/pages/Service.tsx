@@ -111,7 +111,8 @@ const Service: React.FC = () => {
                   <div className="flex justify-between items-center">
                     <div>
                       <span className="text-lg font-bold text-green-500">
-                        От {service.discountPrice} ₽
+                        {service.title !== 'Ремонт ходовой' && 'От'} {service.discountPrice}{' '}
+                        {service.title !== 'Ремонт ходовой' && '₽'}
                       </span>
                       {service.discountPrice < service.price && (
                         <span className="text-red-500 line-through ml-2">{service.price} ₽</span>

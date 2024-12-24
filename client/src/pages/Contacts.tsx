@@ -24,9 +24,8 @@ const Contacts: React.FC = () => {
       <h2 className="font-bold text-2xl mb-4">Контактная информация</h2>
       <div className="bg-gray-100 p-6 rounded-lg shadow-lg mb-8">
         <h3 className="font-bold text-xl mb-2">Наши Контакты</h3>
-        <p>Телефон: +7 (000) 000-00-00</p>
-        <p>Email: info@autoservice.com</p>
-        <p>Адрес: г. Раменское, ул. Чкалова, д 13</p>
+        <p>Телефон: +7 (985) 242-03-53</p>
+        <p>Email: info@autoservice.ru</p>
       </div>
 
       <h2 className="font-bold text-2xl mb-4">Обратная связь</h2>

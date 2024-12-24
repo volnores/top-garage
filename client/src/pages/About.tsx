@@ -24,7 +24,7 @@ const About: React.FC = () => {
       <h2 className="font-bold text-2xl mb-4">О нашей компании</h2>
 
       <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-        <h3 className="font-bold text-xl mb-2">Наша Миссия</h3>
+        <h3 className="font-bold text-xl mb-2">Немного о нас</h3>
         <p>
           Наша компания стремится предоставить клиентам высококачественные услуги по ремонту и
           обслуживанию автомобилей. Мы используем только современные технологии и материалы, чтобы
@@ -42,9 +42,8 @@ const About: React.FC = () => {
         <h3 className="font-bold text-xl mb-2 mt-4">Контакты</h3>
         <p>Мы всегда рады новым клиентам! Вы можете связаться с нами по следующим контактам:</p>
         <ul className="list-inside ml-4 mt-2">
-          <li>Телефон: +7 (000) 000-00-00</li>
-          <li>Email: info@autoservice.com</li>
-          <li>Адрес: г. Раменское, ул. Чкалова, д 13</li>
+          <li>Телефон: +7 (985) 242-03-53</li>
+          <li>Email: info@autoservice.ru</li>
         </ul>
       </div>
     </div>

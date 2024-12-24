@@ -50,11 +50,14 @@ const Header: React.FC = () => {
         <div className="flex flex-col items-center mt-4 md:mt-0 md:flex-row md:items-center">
           <div className="flex flex-col text-white text-lg max-w-sm">
             <p className="text-white text-lg mr-8">
-              г. Раменское, ул. Чкалова, д 13 <br /> Посмотреть на карте
+              Мы находимся: <br />{' '}
+              <a className="cursor-pointer text-blue-400 hover:text-blue-500">
+                Посмотреть на карте
+              </a>
             </p>
           </div>
           <div className="flex flex-col items-start border-l border-gray-600 pl-4 pr-4 mt-2 md:mt-0 md:pl-8 md:pr-8">
-            <p className="text-white font-bold text-xl md:text-2xl">+7 (000) 000-00-00</p>
+            <p className="text-white font-bold text-xl md:text-2xl">+7 (985) 242-03-53</p>
             <p className="text-gray-300 text-md">Пн-Сб: с 09:00 до 20:00</p>
           </div>
           <div className="mt-2 md:mt-0 md:ml-4">

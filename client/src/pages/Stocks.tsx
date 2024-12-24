@@ -27,15 +27,7 @@ const Stocks: React.FC = () => {
         <div className="border border-gray-300 p-6 rounded-lg shadow-lg">
           <h3 className="font-bold text-xl mb-2">Скидка 10% на замену масла</h3>
           <p>Получите скидку 10% на замену масла при записи через сайт!</p>
-          <span className="block text-sm text-gray-500 mt-2">
-            Акция действительна до 31 декабря
-          </span>
-        </div>
-
-        <div className="border border-gray-300 p-6 rounded-lg shadow-lg">
-          <h3 className="font-bold text-xl mb-2">Приведи друга — получи скидку!</h3>
-          <p>Приведите друга в наш автосервис и получите скидку 10% на следующий визит.</p>
-          <span className="block text-sm text-gray-500 mt-2">Без ограничений по времени</span>
+          <span className="block text-sm text-gray-500 mt-2">Акция действительна до 31 января</span>
         </div>
       </div>
     </div>
