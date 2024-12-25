@@ -27,7 +27,15 @@ const Contacts: React.FC = () => {
         <p>Телефон: +7 (985) 242-03-53</p>
         <p>Email: info@autoservice.ru</p>
       </div>
-
+      <h2 className="font-bold text-2xl mb-4">Нас легко найти</h2>
+      <div id="map">
+        <iframe
+          className="rounded w-full"
+          src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=166149550113"
+          width="560"
+          height="400"
+          frameborder="0"></iframe>
+      </div>
       <h2 className="font-bold text-2xl mb-4">Обратная связь</h2>
       <form className="bg-gray-100 p-6 rounded-lg shadow-lg">
         <div className="mb-4">

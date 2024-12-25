@@ -88,8 +88,16 @@ const Home: React.FC = () => {
         <p className="text-center mt-4 text-3xl font-semibold text-gray-800">
           Марки машин, которые мы обслуживаем
         </p>
-        <div className="text-xl">
+        <div className="text-xl mb-4">
           <Brands />
+        </div>
+        <div id="map">
+          <iframe
+            className="rounded w-full"
+            src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=166149550113"
+            width="560"
+            height="400"
+            frameborder="0"></iframe>
         </div>
       </div>
     </div>
