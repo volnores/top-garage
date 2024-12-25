@@ -96,8 +96,7 @@ const Home: React.FC = () => {
             className="rounded w-full"
             src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=166149550113"
             width="560"
-            height="400"
-            frameborder="0"></iframe>
+            height="400"></iframe>
         </div>
       </div>
     </div>

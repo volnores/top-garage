@@ -14,7 +14,7 @@ export const servicesData = [
     category: 'Двигатель',
     description:
       'Полная замена воздушного фильтра для улучшения работы двигателя и повышения его эффективности.',
-    price: '',
+    price: 1,
     discountPrice: 600,
   },
   {
@@ -49,7 +49,7 @@ export const servicesData = [
     title: 'Замена дисков (1 ось)',
     category: 'Тормозная система',
     description: 'Замена тормозных дисков с учетом всех аспектов безопасности и качества.',
-    price: '',
+    price: 1,
     discountPrice: 1990,
   },
   {
@@ -57,7 +57,7 @@ export const servicesData = [
     title: 'Замена колодок (1 ось)',
     category: 'Тормозная система',
     description: 'Замена тормозных колодок с учетом всех аспектов безопасности и качества.',
-    price: '',
+    price: 1,
     discountPrice: 1499,
   },
   {
@@ -75,7 +75,7 @@ export const servicesData = [
     category: 'Тормозная система',
     description:
       'Комплексная проверка и обслуживание тормозных механизмов для обеспечения их надежной работы.',
-    price: '',
+    price: 1,
     discountPrice: 3490,
   },
   {

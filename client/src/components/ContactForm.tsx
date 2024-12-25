@@ -9,16 +9,17 @@ import {
 } from '../store/slices/storeSlice';
 import { RootState } from '../store';
 import { categoriesData } from '../pages/Service';
+import { AppDispatch } from '../store'; // Import AppDispatch type to type dispatch correctly
 
 const ContactForm: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>(); // Explicitly type the dispatch function
   const { status, name, phone, category } = useSelector((state: RootState) => state.store);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Проверка на валидность номера телефона
-    const phonePattern = /^8\d{10}$/; // Регулярное выражение для проверки номера телефона
+    // Validate phone number
+    const phonePattern = /^8\d{10}$/; // Regular expression for validating phone number
 
     if (!phonePattern.test(phone)) {
       alert('Пожалуйста, введите действительный номер телефона, начинающийся с 8.');
@@ -28,6 +29,7 @@ const ContactForm: React.FC = () => {
     const data = { name, phone, category };
 
     try {
+      // Dispatch the async thunk and unwrap it
       await dispatch(sendContactForm(data)).unwrap();
       alert('Сообщение отправлено');
       dispatch(setIsOpenModal(false));
@@ -42,7 +44,7 @@ const ContactForm: React.FC = () => {
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
-    dispatch(setPhone(inputValue)); // Обновляем номер телефона
+    dispatch(setPhone(inputValue)); // Update phone number
   };
 
   return (
@@ -72,6 +74,7 @@ const ContactForm: React.FC = () => {
 
       <select
         className="w-full mb-4 p-3 bg-white-200 border max-w-md border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        value={category}
         onChange={(e) => dispatch(setCategory(e.target.value))}
         required>
         <option value="">Выберите категорию</option>

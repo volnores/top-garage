@@ -114,15 +114,23 @@ const Service: React.FC = () => {
                         {service.title !== 'Ремонт ходовой' && 'От'} {service.discountPrice}{' '}
                         {service.title !== 'Ремонт ходовой' && '₽'}
                       </span>
-                      {service.discountPrice < service.price && (
-                        <span className="text-red-500 line-through ml-2">{service.price} ₽</span>
-                      )}
+
+                      {/* Check if both discountPrice and price are valid numbers before comparing */}
+                      {typeof service.price === 'number' &&
+                        service.price >= 3 &&
+                        service.discountPrice < service.price && (
+                          <span className="text-red-500 line-through ml-2">{service.price} ₽</span>
+                        )}
                     </div>
-                    {service.discountPrice < service.price && (
-                      <span className="bg-yellow-400 text-white font-medium px-6 py-2 rounded-full">
-                        Скидка!
-                      </span>
-                    )}
+
+                    {/* Again, ensure valid numbers before comparison */}
+                    {typeof service.price === 'number' &&
+                      service.price >= 3 &&
+                      service.discountPrice < service.price && (
+                        <span className="bg-yellow-400 text-white font-medium px-6 py-2 rounded-full">
+                          Скидка!
+                        </span>
+                      )}
                   </div>
                 </div>
               ))}
